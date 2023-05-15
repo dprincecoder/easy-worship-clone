@@ -1,0 +1,145 @@
+.topbar {
+  height: 40px;
+  width: 100%;
+  display: flex;
+  position: relative;
+  justify-content: space-between;
+  padding: 0 20px;
+  background: linear-gradient(to bottom, #f6efef, #cbc9c9);
+}
+
+.topbarFile,
+.topbarBGPicker,
+.topbarNurs,
+.alert,
+.logos,
+.logowrap {
+  display: flex;
+  align-items: center;
+}
+
+.topbarFile {
+  width: 30%;
+  justify-content: space-between;
+}
+
+.topbarFileIcon {
+  width: 20px;
+  height: 20px;
+}
+.topbarFileIcon img {
+  width: 100%;
+  height: 100%;
+}
+.topbarFileIcon:hover {
+  cursor: pointer;
+}
+.topbarFileIcon:active {
+  transform: scale(0.9);
+}
+
+.topbarBGPicker {
+  width: 30%;
+  justify-content: space-between;
+}
+
+.topbarNurs {
+  width: 40%;
+  justify-content: space-between;
+}
+
+.topbarBGPickerRight {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  width: 70%;
+}
+
+.topbarBGPickerRight p {
+  margin: 0 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.topbarBGPickerRight p span {
+  margin-left: 5px;
+}
+
+.topbarBGPickerRight p:hover {
+  cursor: pointer;
+}
+
+.topbarBGPickerRight p:active {
+  transform: scale(0.9);
+}
+
+.topbarBGPickerRight p .liveBlink {
+  animation: liveBlink 3s infinite;
+  -webkit-animation: liveBlink 3s infinite;
+}
+
+@keyframes liveBlink {
+  0% {
+    opacity: 0;
+    color: #000;
+  }
+  50% {
+    opacity: 1;
+    color: #ee1a1a;
+  }
+  100% {
+    opacity: 0;
+    color: #000;
+  }
+}
+
+.topbarNurs {
+  margin-left: 10px;
+}
+
+.alert {
+  cursor: pointer;
+}
+
+.logowrap .logo {
+  margin-right: 10px;
+}
+
+.logoblue {
+  color: #1a73e8;
+  margin-right: 2px;
+}
+
+.logowhite {
+  color: #fff;
+  margin-right: 2px;
+}
+
+.livenow {
+  background-color: #b7b4b4;
+  padding: 8px 10px;
+  font-size: 14px;
+  color: #090808;
+}
+
+.isLive {
+  color: #fff;
+  animation: 3s blink infinite;
+  -webkit-animation: 3s blink infinite;
+}
+
+@keyframes blink {
+  0% {
+    opacity: 0;
+    background-color: #b7b4b4;
+  }
+  50% {
+    opacity: 1;
+    background-color: #3586f0;
+  }
+  100% {
+    opacity: 0;
+    background-color: #b7b4b4;
+  }
+}
