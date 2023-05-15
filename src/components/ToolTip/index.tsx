@@ -1,36 +1,39 @@
-import React, { useState } from "react";
+// import React from "react";
+// import "./tooltip.css";
+
+// interface TooltipProps {
+//   text: string;
+// }
+
+// const Tooltip: React.FC<TooltipProps> = ({ text }) => {
+//   return (
+//     <div className="tooltip-wrapper">
+//       <div className="tooltip">{text}</div>
+//     </div>
+//   );
+// };
+
+// export default Tooltip;
+import React from "react";
+import { tooltipPostitionEnum, ITooltip } from "../../config";
 import "./tooltip.css";
 
-interface TooltipProps {
-  text: string;
-}
-
-const Tooltip: React.FC<TooltipProps> = ({ text }) => {
-  const [showTooltip, setShowTooltip] = useState(false);
-
-  let timer: number;
-
-  const handleMouseEnter = () => {
-    alert("mouse enter");
-    timer = setTimeout(() => {
-      setShowTooltip(true);
-    }, 3000);
-  };
-
-  const handleMouseLeave = () => {
-    alert("mouse leave");
-    clearTimeout(timer);
-    setShowTooltip(false);
-  };
-
+const Tooltip: React.FC<ITooltip> = ({
+  content,
+  position,
+  disabled,
+  children,
+}) => {
   return (
-    <div
-      className="tooltip-wrapper"
-      // onMouseEnter={handleMouseEnter}
-      // onMouseLeave={handleMouseLeave}
-    >
-      {/* {children} */}
-      {<div className="tooltip">Test tooltip</div>}
+    <div className="tooltipContainer">
+      <div
+        className={`tooltip${
+          position === tooltipPostitionEnum.Down ? " down" : ""
+        }${disabled ? " disabled" : ""}`}
+      >
+        {content}
+      </div>
+      {children}
     </div>
   );
 };

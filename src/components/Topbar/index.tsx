@@ -9,62 +9,88 @@ import createNew from "../../assets/create-new.png";
 import transitionIcon from "../../assets/transition.png";
 import tv from "../../assets/tv.png";
 import yellowOpenIcon from "../../assets/yellow-open-folder.png";
+import { tooltipPostitionEnum } from "../../config";
 import Divider from "../Divider";
 import Tooltip from "../ToolTip";
 import "./topbar.css";
-import { useState } from "react";
 type Props = {};
 
 const Topbar = () => {
-  const [showTooltip, setShowTooltip] = useState(false);
-   let timer: number;
-
-   const handleMouseEnter = () => {
-     timer = setTimeout(() => {
-       setShowTooltip(true);
-     }, 3000);
-   };
-
-   const handleMouseLeave = () => {
-     clearTimeout(timer);
-     setShowTooltip(false);
-   };
-
   return (
     <div className="topbar">
       <div className="topbarFile">
-        <div
-          className="topbarFileIcon"
-          onMouseEnter={handleMouseEnter}
-          onMouseLeave={handleMouseLeave}
-        >
-          <AiOutlineFile className="topbarFileIcon" />
-          {
-          showTooltip &&
-          <Tooltip text="Create new schedule" />
-          }
+        <div className="topbarFileIcon">
+          <Tooltip
+            disabled={false}
+            position={tooltipPostitionEnum.Down}
+            content={"Create schedule (unavailable)"}
+          >
+            <AiOutlineFile className="topbarFileIcon" />
+          </Tooltip>
         </div>
         <div className="topbarFileIcon">
-          <img src={yellowOpenIcon} alt="open" />
+          <Tooltip
+            disabled={false}
+            position={tooltipPostitionEnum.Down}
+            content={"Open schedule (unavailable)"}
+          >
+            <img src={yellowOpenIcon} alt="open" />
+          </Tooltip>
         </div>
         <div className="topbarFileIcon">
-          <CiFloppyDisk className="topbarFileIcon" />
+          <Tooltip
+            disabled={false}
+            position={tooltipPostitionEnum.Down}
+            content={"Save schedule (unavailable)"}
+          >
+            <CiFloppyDisk className="topbarFileIcon" />
+          </Tooltip>
         </div>
         <div className="topbarFileIcon">
-          <img src={createNew} alt="create new" />
+          <Tooltip
+            disabled={false}
+            position={tooltipPostitionEnum.Down}
+            content={"Create new song in my database"}
+          >
+            <img src={createNew} alt="create new" />
+          </Tooltip>
         </div>
         <div className="topbarFileIcon">
-          <MdEditDocument className="topbarFileIcon" />
+          <Tooltip
+            disabled={false}
+            position={tooltipPostitionEnum.Down}
+            content={"Edit song in my database"}
+          >
+            <MdEditDocument className="topbarFileIcon" />
+          </Tooltip>
         </div>
         <Divider />
         <div className="topbarFileIcon">
-          <FcPrint className="topbarFileIcon" />
+          <Tooltip
+            disabled={false}
+            position={tooltipPostitionEnum.Down}
+            content={"Print song in my database (unavailable)"}
+          >
+            <FcPrint className="topbarFileIcon" />
+          </Tooltip>
         </div>
         <div className="topbarFileIcon">
-          <img src={tv} alt="tv" />
+          <Tooltip
+            disabled={false}
+            position={tooltipPostitionEnum.Down}
+            content={"Preview schedule (unavailable)"}
+          >
+            <img src={tv} alt="tv" />
+          </Tooltip>
         </div>
         <div className="topbarFileIcon">
-          <img src={transitionIcon} alt="transition" />
+          <Tooltip
+            disabled={false}
+            position={tooltipPostitionEnum.Down}
+            content={"Select Transition"}
+          >
+            <img src={transitionIcon} alt="transition" />
+          </Tooltip>
         </div>
         <Divider />
       </div>
