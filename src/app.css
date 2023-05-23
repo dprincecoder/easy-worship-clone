@@ -1,0 +1,41 @@
+.app {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-height: 50vh;
+  position: relative;
+}
+
+.threeRowLayout {
+  display: flex;
+  width: 100%;
+  min-height: calc(100vh - 40px);
+  position: relative;
+  transition: all 3s ease-in-out;
+  -webkit-transition: all 3s ease-in-out;
+  -moz-transition: all 3s ease-in-out;
+  -ms-transition: all 3s ease-in-out;
+  -o-transition: all 3s ease-in-out;
+}
+
+.footerActive .threeRowLayout {
+  min-height: calc(100vh - 90px) !important;
+  border-bottom: 5px solid #ccc;
+}
+
+.leftView {
+  width: 30%;
+  border-right: 5px solid #ccc;
+  padding: 10px;
+}
+
+.centerView {
+  width: 30%;
+  border-right: 5px solid #ccc;
+  padding: 10px;
+}
+
+.rightView {
+  width: 40%;
+  padding: 10px;
+}

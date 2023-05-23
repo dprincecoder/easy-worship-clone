@@ -1,3 +1,4 @@
+import { useEffect, useRef, useState } from "react";
 import { AiFillCaretDown, AiOutlineFile } from "react-icons/ai";
 import { BsImageAlt } from "react-icons/bs";
 import { CiFloppyDisk } from "react-icons/ci";
@@ -13,16 +14,44 @@ import { tooltipPostitionEnum } from "../../config";
 import Divider from "../Divider";
 import Tooltip from "../ToolTip";
 import "./topbar.css";
-type Props = {};
 
-const Topbar = () => {
+type Props = {
+  onValueChange: (value: any) => void;
+};
+
+const rootMargin = "-170px 0px 170px 0px";
+const Topbar = ({onValueChange }: Props) => {
+  const tooltipRef = useRef<HTMLDivElement>(null);
+  const [isTop, setIsTop] = useState(true);
+  let tooltipIntersectionObserver: any = null;
+
+  const handleClick = (value: string) => {
+    //  const value = clicked();
+    onValueChange(value);
+  };
+
+  useEffect(() => {
+    if (!tooltipIntersectionObserver) {
+      tooltipIntersectionObserver = new IntersectionObserver(
+        (entries) => setIsTop(entries[0].isIntersecting),
+        {
+          rootMargin: rootMargin,
+        }
+      );
+      tooltipIntersectionObserver.observe(tooltipRef.current);
+      return () => tooltipIntersectionObserver.unobserve(tooltipRef.current);
+    }
+  }, [isTop]);
   return (
     <div className="topbar">
       <div className="topbarFile">
         <div className="topbarFileIcon">
           <Tooltip
             disabled={false}
-            position={tooltipPostitionEnum.Down}
+            tooltipRef={tooltipRef}
+            position={
+              isTop ? tooltipPostitionEnum.Up : tooltipPostitionEnum.Down
+            }
             content={"Create schedule (unavailable)"}
           >
             <AiOutlineFile className="topbarFileIcon" />
@@ -46,7 +75,7 @@ const Topbar = () => {
             <CiFloppyDisk className="topbarFileIcon" />
           </Tooltip>
         </div>
-        <div className="topbarFileIcon">
+        <div className="topbarFileIcon" onClick={() => handleClick("new_song")}>
           <Tooltip
             disabled={false}
             position={tooltipPostitionEnum.Down}

@@ -15,7 +15,7 @@
 
 // export default Tooltip;
 import React from "react";
-import { tooltipPostitionEnum, ITooltip } from "../../config";
+import { ITooltip, tooltipPostitionEnum } from "../../config";
 import "./tooltip.css";
 
 const Tooltip: React.FC<ITooltip> = ({
@@ -23,10 +23,12 @@ const Tooltip: React.FC<ITooltip> = ({
   position,
   disabled,
   children,
+  tooltipRef
 }) => {
   return (
     <div className="tooltipContainer">
       <div
+        ref={tooltipRef}
         className={`tooltip${
           position === tooltipPostitionEnum.Down ? " down" : ""
         }${disabled ? " disabled" : ""}`}

@@ -36,38 +36,34 @@ font-size: 14px;
   color: #000;
   background: linear-gradient(to bottom, #f6efef, #cbc9c9);
   top: -20px;
-  left: 50%;
-  transform: translateX(-50%) translateY(-100%);
+  left: 40px;
+  transform: translateX(-30%) translateY(-100%);
   padding: 3px 10px;
-  /* border-radius: 5px; */
-  border: 1px solid #000;
+  /*border-radius: 5px;
+  */border: 1px solid #000;
   text-align: center;
   min-width: max-content;
   font-size: 14px;
   font-weight: 400;
   visibility: hidden;
+  -webkit-transform: translateX(-30%) translateY(-100%);
+  -moz-transform: translateX(-30%) translateY(-100%);
+  -ms-transform: translateX(-30%) translateY(-100%);
+  -o-transform: translateX(-30%) translateY(-100%);
 }
 
-/* .tooltip:before {
-  content: "";
-  position: absolute;
-  width: 0;
-  height: 0;
-  left: calc(50% - 10px);
-  top: 100%;
-  border-top: 10px solid rgba(0, 0, 0, 0.8);
-  border-left: 10px solid transparent;
-  border-right: 10px solid transparent;
-  border-bottom: 1px solid transparent;
-} */
 
 .disabled {
-  visibility: hidden;
+  visibility: hidden !important;
 }
 
 .down {
   top: 22px;
-  transform: translateX(-50%) translateY(100%);
+  transform: translateX(-30%) translateY(100%);
+  -webkit-transform: translateX(-30%) translateY(100%);
+  -moz-transform: translateX(-30%) translateY(100%);
+  -ms-transform: translateX(-30%) translateY(100%);
+  -o-transform: translateX(-30%)d translateY(100%);
 }
 
 .down:before {
@@ -76,4 +72,34 @@ font-size: 14px;
   border-left: 10px solid transparent;
   border-right: 10px solid transparent;
   border-top: 1px solid transparent;
+}
+
+.left {
+  left: -20px;
+  top: 40px;
+  transform: translateX(-100%) translateY(-50%);
+}
+
+.left:before {
+  left: calc(100% - 14px);
+  top: calc(50% - 10px);
+  border-left: 10px solid rgba(0, 0, 0, 0.8);
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-right: 1px solid transparent;
+}
+
+.right {
+  left: calc(100% + 20px);
+  top: 40px;
+  transform: translateX(0) translateY(-50%);
+}
+
+.right:before {
+  left: -10px;
+  top: calc(50% - 10px);
+  border-right: 10px solid rgba(0, 0, 0, 0.8);
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-left: 1px solid transparent;
 }
